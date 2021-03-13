@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is my solution to the Flight Booker project in The Odin Project.
 
-Things you may want to cover:
+The objective is to gain practice with advanced Ruby forms. The finished product will be an airline booking platform on which users can:
 
-* Ruby version
+1. Enter desired dates / airports and click “Search”
+2. Choose from among a list of eligible flights
+3. Enter passenger information for all passengers
 
-* System dependencies
+Learn more about the assignment:
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+https://www.theodinproject.com/lessons/building-advanced-forms
