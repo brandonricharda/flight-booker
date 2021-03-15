@@ -1,2 +1,0 @@
-class FlightSchedule < ApplicationRecord
-end
