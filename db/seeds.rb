@@ -14,9 +14,13 @@ dates = []
 
 1.upto(12) { |hour| dates << DateTime.new(2021, 1, 1, hour, 0) }
 
-Airport.all.each do |airport|
-    destination = Airport.select { |x| x != airport }.first
-    dates.each_slice(2) do |start, finish|
-        Flight.create(from_airport_id: airport.id, to_airport_id: destination.id, departure: start, duration: finish.hour - start.hour)
+airports = Airport.all.to_a
+
+airports.each do |source|
+    airports.each do |destination|
+        next if source == destination
+        dates.each_slice(2) do |takeoff, landing|
+            Flight.create(from_airport_id: source.id, to_airport_id: destination.id, departure: takeoff, duration: landing.hour - takeoff.hour)
+        end
     end
 end
