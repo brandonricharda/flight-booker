@@ -2,5 +2,9 @@
 
 <%= form_tag flights_path, :method => "get" do %>
     <%= label_tag("Number of passengers:") %>
-    <%= select_tag :passengers, (options_for_select(1..4)) %>
+    <%= select_tag :passengers, options_for_select(1..4) %></br></br>
+    <%= label_tag("From:") %>
+    <%= select_tag :from_airport, options_for_select(@airport_options) %></br></br>
+    <%= label_tag("To:") %>
+    <%= select_tag :to_airport, options_for_select(@airport_options) %>
 <% end %>
