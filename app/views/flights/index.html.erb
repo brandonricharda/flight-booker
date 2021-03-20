@@ -1,1 +1,6 @@
 <h1>Flights</h1>
+
+<%= form_tag flights_path, :method => "get" do %>
+    <%= label_tag("Number of passengers:") %>
+    <%= select_tag :passengers, (options_for_select(1..4)) %>
+<% end %>
