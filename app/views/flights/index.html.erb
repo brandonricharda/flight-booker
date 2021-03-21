@@ -6,5 +6,7 @@
     <%= label_tag("From:") %>
     <%= select_tag :from_airport, options_for_select(@airport_options) %></br></br>
     <%= label_tag("To:") %>
-    <%= select_tag :to_airport, options_for_select(@airport_options) %>
+    <%= select_tag :to_airport, options_for_select(@airport_options) %></br></br>
+    <%= label_tag("Departure:") %>
+    <%= select_tag :departure, options_for_select(@flight_dates) %>
 <% end %>
