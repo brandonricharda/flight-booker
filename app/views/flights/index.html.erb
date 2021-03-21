@@ -4,9 +4,24 @@
     <%= label_tag("Number of passengers:") %>
     <%= select_tag :passengers, options_for_select(1..4) %></br></br>
     <%= label_tag("From:") %>
-    <%= select_tag :from_airport, options_for_select(@airport_options) %></br></br>
+    <%= select_tag :from_airport_id, options_for_select(@airport_options) %></br></br>
     <%= label_tag("To:") %>
-    <%= select_tag :to_airport, options_for_select(@airport_options) %></br></br>
+    <%= select_tag :to_airport_id, options_for_select(@airport_options) %></br></br>
     <%= label_tag("Departure:") %>
-    <%= select_tag :departure, options_for_select(@flight_dates) %>
+    <%= select_tag :departure, options_for_select(@flight_dates) %></br></br>
+    <%= submit_tag "Search flights" %>
+<% end %>
+
+<% if @searched_flights.any? %>
+    <% @searched_flights.each_with_index do |flight, index| %>
+        <h2>Flight <%= (index + 1) %></h2>
+        <b><p>From airport:</p></b>
+        <%= flight.from_airport.code %>
+        <b><p>To airport:</p></b>
+        <%= flight.to_airport.code %>
+        <b><p>Departure:</p></b>
+        <%= flight.departure %>
+    <% end %>
+<% elsif params[:passengers] %>
+    <p>No flights meet your criteria. Please try again.</p>
 <% end %>
