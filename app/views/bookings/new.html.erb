@@ -1,0 +1,11 @@
+<h2>Create a new booking</h2>
+
+<%# Use find_by with the parameters to fill in gaps regarding flight date, etc %>
+
+<b><p>Flight ID</p></b>
+<%= params[:booking][:flight_id] %>
+
+<b><p>Number of passengers:</p></b>
+<%= params[:booking][:passengers] %></br></br>
+
+<%= params[:booking] %>
