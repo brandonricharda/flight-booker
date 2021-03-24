@@ -14,7 +14,7 @@
 
 <% if @searched_flights.any? %>
     <%# Loops back to current page for now (just testing params; will redirect to Booking form) %>
-    <%= form_tag new_booking_url, :method => "get" do %>
+    <%= form_tag new_booking_url, :method => "get", :action => "new" do %>
         <% @searched_flights.each do |flight| %>
             <%= radio_button "booking", "flight_id", flight.id %> From <%= flight.from_airport.code %> to <%= flight.to_airport.code %> on <%= flight.departure %></br></br>
         <% end %>

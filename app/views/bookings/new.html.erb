@@ -1,11 +1,17 @@
+<%# The displays below actually need to render in a form. I may need to make the form my form_for(booking) and have the fields_for within that iterating over each @passengers %>
+
 <h2>Create a new booking</h2>
 
-<%# Use find_by with the parameters to fill in gaps regarding flight date, etc %>
+<b><p>Flight departure:</p></b>
+<%= @flight.departure %>
 
-<b><p>Flight ID</p></b>
-<%= params[:booking][:flight_id] %>
+<b><p>Departing airport:</p></b>
+<%= @flight.from_airport.code %>
 
-<b><p>Number of passengers:</p></b>
-<%= params[:booking][:passengers] %></br></br>
+<b><p>Arriving airport:</p></b>
+<%= @flight.to_airport.code %>
 
-<%= params[:booking] %>
+<b><p>Flight ID:</p></b>
+<%= @flight.id %></br></br>
+
+<%= @passengers %>

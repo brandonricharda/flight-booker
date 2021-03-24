@@ -1,15 +1,15 @@
 class BookingsController < ActionController::Base
     def new
         @booking = Booking.new
+        @flight = Flight.find_by(id: params[:booking][:flight_id])
+        @number_of_passengers = params[:booking][:passengers].to_i
+        @passengers = []
+        @number_of_passengers.times do
+            @passengers << Passenger.new
+        end
     end
 
     def create
-        @booking = Booking.new(booking_params)
-        if @booking.save
-            redirect_to @booking
-        else
-            redirect_to root
-        end
     end
 
     private
