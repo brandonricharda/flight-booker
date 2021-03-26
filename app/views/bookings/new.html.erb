@@ -2,16 +2,17 @@
 
 <h2>Create a new booking</h2>
 
-<b><p>Flight departure:</p></b>
-<%= @flight.departure %>
-
-<b><p>Departing airport:</p></b>
-<%= @flight.from_airport.code %>
-
-<b><p>Arriving airport:</p></b>
-<%= @flight.to_airport.code %>
-
-<b><p>Flight ID:</p></b>
-<%= @flight.id %></br></br>
-
-<%= @passengers %>
+<%= form_for @booking do |f| %>
+    <b>Flight departure:</b> <%= @flight.departure %></br></br>
+    <b>Departing airport:</b> <%= @flight.from_airport.code %></br></br>
+    <b>Arriving airport:</b> <%= @flight.to_airport.code %></br></br>
+    <b>Flight ID:</b> <%= @flight.id %></br></br>
+    <% @passengers.each_with_index do |passenger, index| %>
+        <%= f.fields_for passenger do |passenger_form| %>
+            <b>Passenger <%= index + 1 %></b></br></br>
+            <b>Name:</b> <%= passenger_form.text_field :name %></br></br>
+            <b>Email:</b> <%= passenger_form.text_field :email %></br></br>
+        <% end %>
+    <% end %>
+    <%= f.submit %>
+<% end %>
