@@ -2,8 +2,6 @@
 
 <h2>Create a new booking</h2>
 
-<%= params[:booking] %>
-
 <%= form_for @booking do |f| %>
     <b>Flight departure:</b> <%= @flight.departure %></br></br>
     <b>Departing airport:</b> <%= @flight.from_airport.code %></br></br>

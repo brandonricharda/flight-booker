@@ -11,6 +11,8 @@ class BookingsController < ActionController::Base
 
     def create
         @booking = Booking.new(booking_params)
+        # This line below will need some update
+        @passenger = Passenger.new(booking_params)
         respond_to do |format|
             if @booking.save
                 format.html { redirect_to @booking, notice: "Booking was successfully created." }
@@ -24,6 +26,6 @@ class BookingsController < ActionController::Base
     private
 
     def booking_params
-        params.require(:booking).permit(:flight_id, :number_of_passengers)
+        params.require(:booking).permit(:flight_id, :number_of_passengers, passengers_attributes: [:name, :email])
     end
 end
