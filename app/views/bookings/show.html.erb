@@ -1,3 +1,18 @@
 <h2>Your booking</h2>
 
 <%= notice %>
+
+<% @booking.passengers.each_with_index do |passenger, index| %>
+    <b><p>Passenger <%= index + 1 %></p></b>
+    <%= passenger.name %></br>
+<% end %>
+
+<b><p>Flight</p></b>
+
+<b><p>Takeoff</p></b>
+<%= @takeoff %></br>
+<%= @from_airport_code %>
+
+<b><p>Landing</p></b>
+<%= @landing %></br>
+<%= @to_airport_code %>

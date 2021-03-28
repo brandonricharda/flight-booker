@@ -18,6 +18,19 @@ class BookingsController < ActionController::Base
         end
     end
 
+    def index
+        @bookings = Booking.all
+    end
+
+    def show
+        @booking = Booking.find(params[:id])
+        @flight = Flight.find_by(id: @booking.flight_id)
+        @from_airport_code = Airport.find_by(id: @flight.from_airport_id).code
+        @to_airport_code = Airport.find_by(id: @flight.to_airport_id).code
+        @takeoff = @flight.departure
+        @landing = (@takeoff + @flight.duration.hours)
+    end
+
     private
 
     def booking_params
