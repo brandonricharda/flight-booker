@@ -2,7 +2,7 @@
 
 <%= form_tag flights_path, :method => "get" do %>
     <%= label_tag("Number of passengers:") %>
-    <%= select_tag :passengers, options_for_select(1..4) %></br></br>
+    <%= select_tag :number_of_passengers, options_for_select(1..4) %></br></br>
     <%= label_tag("From:") %>
     <%= select_tag :from_airport_id, options_for_select(@airport_options) %></br></br>
     <%= label_tag("To:") %>
@@ -18,7 +18,7 @@
         <% @searched_flights.each do |flight| %>
             <%= radio_button "booking", "flight_id", flight.id %> From <%= flight.from_airport.code %> to <%= flight.to_airport.code %> on <%= flight.departure %></br></br>
         <% end %>
-        <%= hidden_field :booking, :passengers, :value => params[:passengers] %>
+        <%= hidden_field :booking, :number_of_passengers, :value => params[:number_of_passengers] %>
         <%= submit_tag "Select flight" %>
     <% end %>
 <% elsif params[:passengers] %>
