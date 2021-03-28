@@ -3,16 +3,11 @@ class BookingsController < ActionController::Base
         @booking = Booking.new
         @flight = Flight.find_by(id: params[:booking][:flight_id])
         @number_of_passengers = params[:booking][:number_of_passengers].to_i
-        @passengers = []
-        @number_of_passengers.times do
-            @passengers << Passenger.new
-        end
+        @number_of_passengers.times { @booking.passengers.build }
     end
 
     def create
         @booking = Booking.new(booking_params)
-        # This line below will need some update
-        @passenger = Passenger.new(booking_params)
         respond_to do |format|
             if @booking.save
                 format.html { redirect_to @booking, notice: "Booking was successfully created." }

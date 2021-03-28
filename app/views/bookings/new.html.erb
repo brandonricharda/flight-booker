@@ -9,8 +9,8 @@
     <b>Flight ID:</b> <%= @flight.id %></br></br>
     <%= hidden_field(:booking, :flight_id, :value => @flight.id) %>
     <%= hidden_field(:booking, :number_of_passengers, :value => @number_of_passengers) %>
-    <% @passengers.each_with_index do |passenger, index| %>
-        <%= f.fields_for passenger do |passenger_form| %>
+    <% @booking.passengers.each_with_index do |passenger, index| %>
+        <%= f.fields_for :passengers do |passenger_form| %>
             <b>Passenger <%= index + 1 %></b></br></br>
             <b>Name:</b> <%= passenger_form.text_field :name %></br></br>
             <b>Email:</b> <%= passenger_form.text_field :email %></br></br>
