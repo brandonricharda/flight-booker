@@ -10,6 +10,7 @@ class BookingsController < ActionController::Base
         @booking = Booking.new(booking_params)
         respond_to do |format|
             if @booking.save
+                PassengerMailer.with(booking: @booking).welcome_email.deliver_now
                 format.html { redirect_to @booking, notice: "Booking was successfully created." }
             else
                 format.html { render :new }
