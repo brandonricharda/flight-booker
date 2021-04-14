@@ -6,6 +6,9 @@ class PassengersController < ActionController::Base
 
     def create
         @booking = Booking.find(params[:booking_id])
-        @passenger = @booking.passengers.create(booking_params)
+        @passenger = @booking.passengers.new(booking_params)
+        if @passenger.save
+            UserMailer.with(passenger: @passenger).welcome_email.deliver_now
+        end
     end
 end
