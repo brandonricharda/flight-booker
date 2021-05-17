@@ -2,7 +2,7 @@
 
 This is my solution to the Flight Booker project in The Odin Project.
 
-The objective is to gain practice with advanced Ruby forms. The finished product will be an airline booking platform on which users can:
+The objective is to gain practice with advanced Ruby forms. The finished product is an airline booking platform on which users can:
 
 1. Enter desired dates / airports and click “Search”
 2. Choose from among a list of eligible flights
